@@ -25,6 +25,13 @@ const mockUsers = [
     name: 'Admin User',
     email: 'admin@admin.edu',
     role: 'admin' as const
+  },
+  {
+    id: '4',
+    name: 'Mary Doe',
+    email: 'mary@parent.com',
+    role: 'parent' as const,
+    studentId: '1' // Parent of John Doe
   }
 ];
 

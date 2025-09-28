@@ -1,6 +1,6 @@
 import { useAuth } from '@/context/AuthContext';
 import { Button } from '@/components/ui/button';
-import { LogOut, Home, History, Users } from 'lucide-react';
+import { LogOut, Home, History, Users, Shield } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 export function Navbar() {
@@ -55,6 +55,18 @@ export function Navbar() {
               >
                 <Users className="h-4 w-4" />
                 <span>Manage Requests</span>
+              </Button>
+            )}
+
+            {user.role === 'parent' && (
+              <Button
+                variant={isActive('/parent') ? 'default' : 'ghost'}
+                size="sm"
+                onClick={() => navigate('/parent')}
+                className="flex items-center space-x-2"
+              >
+                <Shield className="h-4 w-4" />
+                <span>Parent Panel</span>
               </Button>
             )}
           </div>

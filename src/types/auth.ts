@@ -1,4 +1,4 @@
-export type UserRole = 'student' | 'admin' | 'warden';
+export type UserRole = 'student' | 'admin' | 'warden' | 'parent';
 
 export interface User {
   id: string;
@@ -7,6 +7,7 @@ export interface User {
   role: UserRole;
   hostelName?: string;
   roomNumber?: string;
+  studentId?: string; // For parent role
 }
 
 export interface AuthContextType {

@@ -31,6 +31,13 @@ export function StatusBadge({ status, className }: StatusBadgeProps) {
           text: 'Rejected',
           className: 'bg-destructive text-destructive-foreground hover:bg-destructive/80'
         };
+      case 'pending_otp':
+        return {
+          variant: 'secondary' as const,
+          icon: Clock,
+          text: 'Pending OTP',
+          className: 'bg-blue-500 text-white hover:bg-blue-600'
+        };
     }
   };
 

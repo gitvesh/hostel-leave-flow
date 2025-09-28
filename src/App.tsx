@@ -7,6 +7,7 @@ import { AuthProvider, useAuth } from "@/context/AuthContext";
 import Login from "./pages/Login";
 import StudentDashboard from "./pages/StudentDashboard";
 import AdminDashboard from "./pages/AdminDashboard";
+import ParentDashboard from "./pages/ParentDashboard";
 import LeaveHistory from "./pages/LeaveHistory";
 import NotFound from "./pages/NotFound";
 
@@ -61,6 +62,14 @@ const App = () => (
               } 
             />
             <Route 
+              path="/parent" 
+              element={
+                <RoleBasedRoute allowedRoles={['parent']}>
+                  <ParentDashboard />
+                </RoleBasedRoute>
+              } 
+            />
+            <Route 
               path="/history" 
               element={
                 <ProtectedRoute>
@@ -83,6 +92,10 @@ function DashboardRouter() {
   
   if (user?.role === 'admin' || user?.role === 'warden') {
     return <AdminDashboard />;
+  }
+  
+  if (user?.role === 'parent') {
+    return <ParentDashboard />;
   }
   
   return <StudentDashboard />;
